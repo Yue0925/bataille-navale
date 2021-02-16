@@ -56,6 +56,6 @@ public  abstract class AbstractShip {
     @Override
     public String toString() {
         return "Ship's Type: " + name + ", label:" + 
-        lable + ", size: " + size + ", orientation: " + orientation;
+        lable + ", size: " + size;
     }
 }
