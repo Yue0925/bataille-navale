@@ -19,7 +19,7 @@ public class Board implements IBoard {
      * @param name
      * @param size
      */
-    public Board(String name, int size){
+    Board(String name, int size){
         this.name = name;
         ships = new char[size][size];
         hits = new boolean[size][size];
@@ -29,7 +29,7 @@ public class Board implements IBoard {
      * Constructor with grid's defaut size of 10
      * @param name
      */
-    public Board(String name){
+    Board(String name){
         this(name, 10);
     }
 
@@ -141,7 +141,6 @@ public class Board implements IBoard {
                     System.out.print(" . ");
                 }
             }
-            System.out.print(" ");
             for(int j=1; j<len; j++){ 
                 if(getHit(i, j) == true){
                     System.out.print(" x ");

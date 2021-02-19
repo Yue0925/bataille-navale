@@ -19,7 +19,7 @@ public class Board implements IBoard {
      * @param name
      * @param size
      */
-    public Board(String name, int size){
+    Board(String name, int size){
         this.name = name;
         ships = new char[size][size];
         hits = new boolean[size][size];
@@ -29,7 +29,7 @@ public class Board implements IBoard {
      * Constructor with grid's defaut size of 10
      * @param name
      */
-    public Board(String name){
+    Board(String name){
         this(name, 10);
     }
 
@@ -131,7 +131,9 @@ public class Board implements IBoard {
      */
     public void print(){
         int len = ships.length +1;
+
         printBoardIndice();
+
         for(int i=1; i<len; i++){
             System.out.print(i);
             for(int j=1; j<len; j++){ 
@@ -141,7 +143,11 @@ public class Board implements IBoard {
                     System.out.print(" . ");
                 }
             }
-            System.out.print(" ");
+            System.out.println();
+        }
+
+        for(int i=1; i<len; i++){
+            System.out.print(i);
             for(int j=1; j<len; j++){ 
                 if(getHit(i, j) == true){
                     System.out.print(" x ");
@@ -154,14 +160,14 @@ public class Board implements IBoard {
     }
 
     public void printBoardIndice(){
-        int len = ships.length;
+        int len = ships.length +1;
         System.out.print(" Navires:"  + String.format("%" + (3 * ships[0].length - 7) + "s", ""));
         System.out.print(" Frappes:"  + String.format("%" + (3 * ships[0].length - 7) + "s", ""));
         System.out.println();
         System.out.print(" ");
-        for(int i=0; i<len; i++){ System.out.print(" " + (char)(65 + i) + " ");}
+        for(int i=1; i<len; i++){ System.out.print(" " + (char)(65 + i) + " ");}
         System.out.print(" ");
-        for(int i=0; i<len; i++){ System.out.print(" " + (char)(65 + i) + " ");}
+        for(int i=1; i<len; i++){ System.out.print(" " + (char)(65 + i) + " ");}
         System.out.println();
     }
 

@@ -29,7 +29,7 @@ public class Board implements IBoard {
      * Constructor with grid's defaut size of 10
      * @param name
      */
-    public Board(String name){
+    publi Board(String name){
         this(name, 10);
     }
 
