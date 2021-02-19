@@ -19,19 +19,10 @@ public enum Orientation{
         this.sign = sign;
     }
 
-    /**
-     * Get the symbol of Orientation
-     * @return
-     */
     public String getSign() {
         return sign;
     }
 
-    /**
-     * Given a symbol, return the correspond Orientation object
-     * @param sign
-     * @return the correspond Orientation object, or null
-     */
     public static Orientation matchOrientation(String sign){
         for(Orientation o: Orientation.values()){
             if(o.getSign().equals(sign))

@@ -131,7 +131,7 @@ public class Board implements IBoard {
      */
     public void print(){
         int len = ships.length +1;
-        printBoardIndice(len-1);
+        printBoardIndice(len);
         for(int i=1; i<len; i++){
             System.out.print(i);
             printLineShips(len, i);

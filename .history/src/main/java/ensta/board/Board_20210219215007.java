@@ -130,8 +130,8 @@ public class Board implements IBoard {
      * Print two grids in terminal
      */
     public void print(){
-        int len = ships.length +1;
-        printBoardIndice(len-1);
+        int len = ships.length;
+        printBoardIndice(len);
         for(int i=1; i<len; i++){
             System.out.print(i);
             printLineShips(len, i);

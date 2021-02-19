@@ -41,8 +41,23 @@ public class Player {
             String msg = String.format("placer %d : %s(%d)", i + 1, s.getName(), s.getSize()); //getLength()
             System.out.println(msg);
             InputHelper.ShipInput res = InputHelper.readShipInput();
-            s.setOrientation(Orientation.matchOrientation(res.orientation));
+
+            switch (res.orientation) {
+                case "n":
+                    s.setOrientation(Orientation.NORTH);
+                    break;
+                case "s":
+                    s.setOrientation(Orientation.SOUTH);
+                    break;
+                case "e":
+                    s.setOrientation(Orientation.EAST);
+                    break;
+                case "w":
+                    s.setOrientation(Orientation.WEST);
+                    break;
+            }
             try {
+                System.out.println("putship x: "+res.x+", y: "+res.y);
                 board.putShip(s, res.x, res.y);
             } catch (Exception e) {
                 System.out.println("Your position is not accepted, please entry another position!");

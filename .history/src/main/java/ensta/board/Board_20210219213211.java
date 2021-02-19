@@ -131,20 +131,16 @@ public class Board implements IBoard {
      */
     public void print(){
         int len = ships.length +1;
-        printBoardIndice(len-1);
+        printBoardIndice(len);
         for(int i=1; i<len; i++){
             System.out.print(i);
-            printLineShips(len, i);
+            printLineShips(len);
             System.out.print(" ");
-            printLineHits(len, i);
+            printLineHits(len);
             System.out.println();
         }
     }
 
-    /**
-     * Print indices in the border
-     * @param len
-     */
     public void printBoardIndice(int len){
         System.out.print(" Navires:"  + String.format("%" + (3 * ships[0].length - 7) + "s", ""));
         System.out.print(" Frappes:"  + String.format("%" + (3 * ships[0].length - 7) + "s", ""));
@@ -156,11 +152,7 @@ public class Board implements IBoard {
         System.out.println();
     }
 
-    /**
-     * Print ships of line i
-     * @param len
-     */
-    public void printLineShips(int len, int i){
+    public void printLineShips(int len){
         for(int j=1; j<len; j++){ 
             if(hasShip(i, j)){
                 System.out.print(" " + ships[i-1][j-1]+" ");
@@ -170,11 +162,7 @@ public class Board implements IBoard {
         }    
     }
 
-    /**
-     * Print hits of line i
-     * @param len
-     */
-    public void printLineHits(int len, int i){
+    public void printLineHits(int len){
         for(int j=1; j<len; j++){ 
             if(getHit(i, j) == true){
                 System.out.print(" x ");

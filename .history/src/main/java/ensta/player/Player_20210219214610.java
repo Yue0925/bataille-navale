@@ -43,6 +43,7 @@ public class Player {
             InputHelper.ShipInput res = InputHelper.readShipInput();
             s.setOrientation(Orientation.matchOrientation(res.orientation));
             try {
+                System.out.println("putship x: "+res.x+", y: "+res.y);
                 board.putShip(s, res.x, res.y);
             } catch (Exception e) {
                 System.out.println("Your position is not accepted, please entry another position!");

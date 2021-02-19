@@ -28,9 +28,9 @@ public enum Orientation{
     }
 
     /**
-     * Given a symbol, return the correspond Orientation object
+     * 
      * @param sign
-     * @return the correspond Orientation object, or null
+     * @return
      */
     public static Orientation matchOrientation(String sign){
         for(Orientation o: Orientation.values()){
