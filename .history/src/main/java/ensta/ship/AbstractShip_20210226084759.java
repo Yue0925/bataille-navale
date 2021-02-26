@@ -62,18 +62,15 @@ public  abstract class AbstractShip {
     }
 
     /**
-     * Increment the number of attacted strikes 
+     * 
      */
-    public void addStrike() throws Exception{
-        if(isSunk())
-            throw new Exception("The number of Strike is enough and the ship is sunk already");
-        else 
-            strikCount++;
+    public void addStrike(){
+        strikCount++;
     }
 
     /**
-     * A ship is sunk iff the number of strikes attacked equals it's size
-     * @return whether the ship is sunk
+     * 
+     * @return
      */
     public boolean isSunk(){
         return strikCount == getSize();

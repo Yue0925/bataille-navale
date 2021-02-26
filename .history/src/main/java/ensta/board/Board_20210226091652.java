@@ -1,7 +1,6 @@
 package ensta.board;
 
 import ensta.ship.*;
-import ensta.utils.ColorUtil;
 
 /**
  * Board
@@ -13,7 +12,7 @@ public class Board implements IBoard {
      */
     private String name;
     private ShipState ships [][];
-    private Boolean hits [][];
+    private boolean hits [][];
 
     /**
      * Constructor of Board
@@ -22,8 +21,8 @@ public class Board implements IBoard {
      */
     public Board(String name, int size){
         this.name = name;
-        ships = new ShipState[size][size];
-        hits = new Boolean[size][size];
+        ships = new char[size][size];
+        hits = new boolean[size][size];
     }
     
     /**
@@ -38,10 +37,10 @@ public class Board implements IBoard {
      * Les getters
      */
 
-    public Boolean[][] getHits() {
+    public boolean[][] getHits() {
         return hits;
     }
-    public ShipState[][] getShips() {
+    public char[][] getShips() {
         return ships;
     }
     public String getName() {
@@ -52,13 +51,13 @@ public class Board implements IBoard {
      * Les setters
      */
 
-    public void setHits(Boolean[][] hits) {
+    public void setHits(boolean[][] hits) {
         this.hits = hits;
     }
     public void setName(String name) {
         this.name = name;
     }
-    public void setShips(ShipState[][] ships) {
+    public void setShips(char[][] ships) {
         this.ships = ships;
     }
 
@@ -84,7 +83,7 @@ public class Board implements IBoard {
         if(hasShip(x, y)){
             throw new BoardException("A ship already exists at ("+x+","+y+"), ships cannot insersect.");
         }
-        ships[x-1][y-1] = new ShipState(ship);
+        ships[x-1][y-1] = ship.getLable();
     }
 
     /**
@@ -97,7 +96,7 @@ public class Board implements IBoard {
             throw new IllegalArgumentException("The position chosed ("+x+","+y+") is out of range, both coordonates should between"+
         1+" and "+s);
         }
-        return (ships[x-1][y-1] != null);
+        return (ships[x-1][y-1] != '\0');
     }
 
     /**
@@ -110,7 +109,7 @@ public class Board implements IBoard {
             throw new IllegalArgumentException("The position chosed ("+x+","+y+") is out of range, both coordonates should between"+
         1+" and "+s);
         }
-        hits[x-1][y-1] = Boolean.valueOf(hit);// or true ?
+        hits[x-1][y-1] = hit;// or true ?
     }
 
     /**
@@ -164,7 +163,7 @@ public class Board implements IBoard {
     public void printLineShips(int len, int i){
         for(int j=1; j<len; j++){ 
             if(hasShip(i, j)){
-                System.out.print(" " + ships[i-1][j-1].getShip().getLable()+" ");
+                System.out.print(" " + ships[i-1][j-1]+" ");
             }else{
                 System.out.print(" . ");
             }
@@ -177,11 +176,10 @@ public class Board implements IBoard {
      */
     public void printLineHits(int len, int i){
         for(int j=1; j<len; j++){ 
-            if(getHit(i, j) == null){
-                System.out.print(" . ");
+            if(getHit(i, j) == true){
+                System.out.print(" x ");
             }else{
-                System.out.print(" " + getHit(i, j).booleanValue()? ColorUtil.colorize('X', ColorUtil.Color.RED): 
-                ColorUtil.colorize('X', ColorUtil.Color.WHITE));
+                System.out.print(" . ");
             }
         }
     }

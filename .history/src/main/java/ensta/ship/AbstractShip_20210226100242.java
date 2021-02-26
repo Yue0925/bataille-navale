@@ -72,7 +72,7 @@ public  abstract class AbstractShip {
     }
 
     /**
-     * A ship is sunk iff the number of strikes attacked equals it's size
+     * A ship is sunk iff the number of strikes attacked >= it's size
      * @return whether the ship is sunk
      */
     public boolean isSunk(){

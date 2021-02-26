@@ -164,7 +164,7 @@ public class Board implements IBoard {
     public void printLineShips(int len, int i){
         for(int j=1; j<len; j++){ 
             if(hasShip(i, j)){
-                System.out.print(" " + ships[i-1][j-1].getShip().getLable()+" ");
+                System.out.print(" " + ships[i-1][j-1]+" ");
             }else{
                 System.out.print(" . ");
             }

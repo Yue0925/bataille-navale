@@ -1,7 +1,6 @@
 package ensta.board;
 
 import ensta.ship.*;
-import ensta.utils.ColorUtil;
 
 /**
  * Board
@@ -164,7 +163,7 @@ public class Board implements IBoard {
     public void printLineShips(int len, int i){
         for(int j=1; j<len; j++){ 
             if(hasShip(i, j)){
-                System.out.print(" " + ships[i-1][j-1].getShip().getLable()+" ");
+                System.out.print(" " + ships[i-1][j-1]+" ");
             }else{
                 System.out.print(" . ");
             }
@@ -177,11 +176,10 @@ public class Board implements IBoard {
      */
     public void printLineHits(int len, int i){
         for(int j=1; j<len; j++){ 
-            if(getHit(i, j) == null){
-                System.out.print(" . ");
+            if(getHit(i, j) == true){
+                System.out.print(" x ");
             }else{
-                System.out.print(" " + getHit(i, j).booleanValue()? ColorUtil.colorize('X', ColorUtil.Color.RED): 
-                ColorUtil.colorize('X', ColorUtil.Color.WHITE));
+                System.out.print(" . ");
             }
         }
     }
