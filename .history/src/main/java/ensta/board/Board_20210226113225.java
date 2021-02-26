@@ -130,7 +130,6 @@ public class Board implements IBoard {
 
     /**
      * Overload the interface's methode
-     * If the ship is sunk, then both ship and hit shoulb dispear in grids
      */
     public Hit sendHit(int x, int y){
         if(!hasShip(x, y)){

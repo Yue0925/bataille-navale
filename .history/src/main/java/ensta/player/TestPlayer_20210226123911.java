@@ -20,8 +20,6 @@ public class TestPlayer {
         Player player = new Player(myBoard, enemyBoard, ships);
         player.putShips();
 
-        int [] coords = new int [2];
         player.sendHit(coords);
-        System.out.println("coords[0]: "+coords[0] + ", coords[1]: " + coords[1]);
     }
 }

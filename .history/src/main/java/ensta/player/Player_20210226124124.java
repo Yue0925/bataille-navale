@@ -70,8 +70,6 @@ public class Player {
                 System.out.println(e.getMessage());
                 done = false;
             }
-            opponentBoard.print();
-            board.print();
         } while (!done);
 
         return hit;

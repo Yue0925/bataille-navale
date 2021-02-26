@@ -22,6 +22,5 @@ public class TestPlayer {
 
         int [] coords = new int [2];
         player.sendHit(coords);
-        System.out.println("coords[0]: "+coords[0] + ", coords[1]: " + coords[1]);
     }
 }

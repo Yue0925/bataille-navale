@@ -1,6 +1,5 @@
 package ensta.board;
 import ensta.ship.*;
-import ensta.utils.*;
 
 public interface IBoard { 
 

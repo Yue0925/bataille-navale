@@ -2,7 +2,6 @@ package ensta.board;
 
 import ensta.ship.*;
 import ensta.utils.ColorUtil;
-import ensta.utils.Hit;
 
 /**
  * Board
@@ -111,7 +110,7 @@ public class Board implements IBoard {
             throw new IllegalArgumentException("The position chosed ("+x+","+y+") is out of range, both coordonates should between"+
         1+" and "+s);
         }
-        hits[x-1][y-1] = Boolean.valueOf(hit);
+        hits[x-1][y-1] = Boolean.valueOf(hit);// or true ?
     }
 
     /**
@@ -129,22 +128,14 @@ public class Board implements IBoard {
     }
 
     /**
-     * Overload the interface's methode
-     * If the ship is sunk, then both ship and hit shoulb dispear in grids
+     * Send a hit at the given position
+     * @param x
+     * @param y
+     * @return status for the hit (eg: strike or miss)
      */
     public Hit sendHit(int x, int y){
-        if(!hasShip(x, y)){
-            setHit(false, x, y);
-            return Hit.MISS;
-        }
         setHit(true, x, y);
-        ships[x-1][y-1].addStrike();
-        if(ships[x-1][y-1].isSunk()){
-            System.out.println(ships[x-1][y-1].getShip().getLable() + " coulé");
-            hits[x-1][y-1] = null;
-            return Hit.fromInt(ships[x-1][y-1].getShip().getSize());
-        }
-        return Hit.STIKE;
+        
     }
 
     /**
@@ -184,7 +175,7 @@ public class Board implements IBoard {
     public void printLineShips(int len, int i){
         for(int j=1; j<len; j++){ 
             if(hasShip(i, j)){
-                System.out.print(" " + ships[i-1][j-1]+" ");
+                System.out.print(" " + ships[i-1][j-1].getShip().getLable()+" ");
             }else{
                 System.out.print(" . ");
             }
@@ -200,8 +191,8 @@ public class Board implements IBoard {
             if(getHit(i, j) == null){
                 System.out.print(" . ");
             }else{
-                System.out.print(" " + (getHit(i, j).booleanValue()? ColorUtil.colorize("X", ColorUtil.Color.RED): 
-                ColorUtil.colorize("X", ColorUtil.Color.WHITE) )+ " ");
+                System.out.print(" " + getHit(i, j).booleanValue()? ColorUtil.colorize('X', ColorUtil.Color.RED): 
+                ColorUtil.colorize('X', ColorUtil.Color.WHITE));
             }
         }
     }

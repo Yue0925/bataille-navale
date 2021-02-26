@@ -130,7 +130,6 @@ public class Board implements IBoard {
 
     /**
      * Overload the interface's methode
-     * If the ship is sunk, then both ship and hit shoulb dispear in grids
      */
     public Hit sendHit(int x, int y){
         if(!hasShip(x, y)){
@@ -141,7 +140,6 @@ public class Board implements IBoard {
         ships[x-1][y-1].addStrike();
         if(ships[x-1][y-1].isSunk()){
             System.out.println(ships[x-1][y-1].getShip().getLable() + " coulé");
-            hits[x-1][y-1] = null;
             return Hit.fromInt(ships[x-1][y-1].getShip().getSize());
         }
         return Hit.STIKE;

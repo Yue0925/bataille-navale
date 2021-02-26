@@ -21,23 +21,16 @@ public class TestBoard {
             myBoard.putShip(shipC, 10, 10);
             //myBoard.putShip(shipD, 10, 10);
             myBoard.putShip(shipD, 9, 10);
-            myBoard.print();
+
             System.out.println("hit status: " + myBoard.sendHit(3, 3));
-            myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(9, 10));
-            myBoard.print();
             System.out.println("hit status: " + myBoard.sendHit(5, 5));
-            myBoard.print();
             System.out.println("hit status: " + myBoard.sendHit(5, 5));
-            myBoard.print();
             System.out.println("hit status: " + myBoard.sendHit(5, 5));
-            myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(5, 5));
-            myBoard.print();
 
         } catch (Exception e) {
             System.out.println(e);
         }
+        myBoard.print();
     }
     
 }
