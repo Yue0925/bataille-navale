@@ -20,19 +20,19 @@ public class TestBoard {
             myBoard.putShip(shipB, 1, 1);
             myBoard.putShip(shipC, 5, 5);
             //myBoard.putShip(shipD, 5, 10);
-            myBoard.putShip(shipD, 8, 9);
+            myBoard.putShip(shipD, 8, 8);
             myBoard.print();
             System.out.println("hit status: " + myBoard.sendHit(3, 3));
             myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(8, 10));
-            myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(8, 9));
+            System.out.println("hit status: " + myBoard.sendHit(9, 10));
             myBoard.print();
             System.out.println("hit status: " + myBoard.sendHit(5, 5));
             myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(1, 2));
+            System.out.println("hit status: " + myBoard.sendHit(5, 5));
             myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(1, 3));
+            System.out.println("hit status: " + myBoard.sendHit(5, 5));
+            myBoard.print();
+            System.out.println("hit status: " + myBoard.sendHit(5, 5));
             myBoard.print();
 
         } catch (Exception e) {

@@ -143,6 +143,7 @@ public class Board implements IBoard {
         ships[x-1][y-1].addStrike();
         if(ships[x-1][y-1].isSunk()){
             System.out.println(ships[x-1][y-1].getShip().getLable() + " coulé");
+            hits[x-1][y-1] = null;
             return Hit.fromInt(ships[x-1][y-1].getShip().getSize());
         }
         return Hit.STIKE;
@@ -220,12 +221,12 @@ public class Board implements IBoard {
         Orientation o = ship.getOrientation();
         int dx = 0, dy = 0;
         if (o == Orientation.SOUTH) {
-            if (x + ship.getSize() > size) {
+            if (x + ship.getSize() >= size) {
                 return false;
             }
             dx = 1;
         } else if (o == Orientation.EAST) {
-            if (y + ship.getSize() > size) {
+            if (y + ship.getSize() >= size) {
                 return false;
             }
             dy = 1;

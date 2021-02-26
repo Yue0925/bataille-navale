@@ -44,7 +44,7 @@ public class Player {
             try {
                 board.putShip(s, res.x, res.y);
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println(e);
                 i--;
             }
             ++i;

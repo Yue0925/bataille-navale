@@ -1,0 +1,46 @@
+package ensta.game;
+import java.awt.List;
+
+import ensta.board.*;
+import ensta.ship.*;
+import ensta.utils.*;
+
+/**
+ * TestGame
+ */
+public class TestGame {
+    private static void sleep(int ms) { 
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) { 
+            e.printStackTrace();
+        }
+     }
+
+    public static void main(String[] args) {
+        Board board = new Board("board");
+        AbstractShip[] ships = {new Destroyer(), new Submarine(), 
+        new Submarine(), new BattleShip(), new Carrier()};
+
+        BattleShipsAI ai = new BattleShipsAI(board, board);
+        ai.putShips(ships);
+        board.print();
+
+        int[] coords = new int [2];
+        int shipsDownCount = ships.length;
+        Hit hit = null;
+
+        while (shipsDownCount > 0) {
+            
+            hit = ai.sendHit(coords);
+            System.out.println("coords: (" + coords[0] + ", " + coords[1] + "), hit status: " + hit);
+            board.print();
+            if(hit!=Hit.MISS && hit!=Hit.STIKE){
+                shipsDownCount--;
+            }
+            sleep(100);
+        }
+
+
+    }
+}

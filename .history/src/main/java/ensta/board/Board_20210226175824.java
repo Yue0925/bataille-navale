@@ -85,9 +85,10 @@ public class Board implements IBoard {
         if(hasShip(x, y)){
             throw new BoardException("A ship already exists at position ("+x+","+y+").");
         }
-        if(!VerifyAndPutShip(ship, x, y)){
+        if(!canPutShip(ship, x, y)){
             throw new BoardException("Your ship cannot insersect another ship.");
         }
+        ships[x-1][y-1] = new ShipState(ship);
     }
 
     /**
@@ -143,6 +144,7 @@ public class Board implements IBoard {
         ships[x-1][y-1].addStrike();
         if(ships[x-1][y-1].isSunk()){
             System.out.println(ships[x-1][y-1].getShip().getLable() + " coulé");
+            hits[x-1][y-1] = null;
             return Hit.fromInt(ships[x-1][y-1].getShip().getSize());
         }
         return Hit.STIKE;
@@ -207,14 +209,7 @@ public class Board implements IBoard {
         }
     }
 
-    /**
-     * If ship can be placed at the giveb position, then place it by putOrientationShips
-     * @param ship
-     * @param x
-     * @param y
-     * @return true or false
-     */
-    private boolean VerifyAndPutShip(AbstractShip ship, int x, int y) {
+    private boolean canPutShip(AbstractShip ship, int x, int y) {
         x--; y--;
         int size = getSize();
         Orientation o = ship.getOrientation();
@@ -251,24 +246,9 @@ public class Board implements IBoard {
             ix += dx;
             iy += dy;
         }
-        putOrientationShips(ship, x, y, dx, dy);
+
         return true;
     }
 
-    /**
-     * Place ship according to it's size and it's orientation
-     * @param ship to be placed
-     * @param x
-     * @param y
-     * @param dx orientation
-     * @param dy orientation
-     */
-    private void putOrientationShips(AbstractShip ship, int x, int y, int dx, int dy){
-        for (int i = 0; i < ship.getSize(); ++i) {
-            ships[x][y] = new ShipState(ship);
-            x += dx;
-            y += dy;
-        }
-    }
 
 }

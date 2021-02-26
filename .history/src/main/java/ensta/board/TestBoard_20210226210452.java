@@ -24,15 +24,15 @@ public class TestBoard {
             myBoard.print();
             System.out.println("hit status: " + myBoard.sendHit(3, 3));
             myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(8, 10));
-            myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(8, 9));
+            System.out.println("hit status: " + myBoard.sendHit(9, 10));
             myBoard.print();
             System.out.println("hit status: " + myBoard.sendHit(5, 5));
             myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(1, 2));
+            System.out.println("hit status: " + myBoard.sendHit(5, 5));
             myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(1, 3));
+            System.out.println("hit status: " + myBoard.sendHit(5, 5));
+            myBoard.print();
+            System.out.println("hit status: " + myBoard.sendHit(5, 5));
             myBoard.print();
 
         } catch (Exception e) {

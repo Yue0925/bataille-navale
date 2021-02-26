@@ -1,5 +1,4 @@
-package ensta.player;
-import ensta.utils.*;
+package ensta.utils;
 import java.util.Arrays;
 import java.util.Scanner;
 

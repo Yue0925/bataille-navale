@@ -30,9 +30,9 @@ public class TestBoard {
             myBoard.print();
             System.out.println("hit status: " + myBoard.sendHit(5, 5));
             myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(1, 2));
+            System.out.println("hit status: " + myBoard.sendHit(5, 5));
             myBoard.print();
-            System.out.println("hit status: " + myBoard.sendHit(1, 3));
+            System.out.println("hit status: " + myBoard.sendHit(5, 5));
             myBoard.print();
 
         } catch (Exception e) {

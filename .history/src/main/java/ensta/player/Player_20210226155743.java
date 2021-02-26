@@ -44,7 +44,7 @@ public class Player {
             try {
                 board.putShip(s, res.x, res.y);
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println("Your position is not accepted, please entry another position!");
                 i--;
             }
             ++i;
