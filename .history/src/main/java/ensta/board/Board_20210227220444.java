@@ -132,6 +132,7 @@ public class Board implements IBoard {
 
     /**
      * Overload the interface's methode
+     * If the ship is sunk
      */
     public Hit sendHit(int x, int y){
         if(!hasShip(x, y)){
