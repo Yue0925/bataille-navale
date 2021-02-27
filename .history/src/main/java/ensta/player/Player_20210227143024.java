@@ -1,7 +1,6 @@
 package ensta.player;
 import java.io.Serializable;
 import java.util.List;
-import java.util.spi.LocaleServiceProvider;
 
 import ensta.board.*;
 import ensta.ship.*;
@@ -24,8 +23,6 @@ public class Player {
         this.board = board;
         this.ships = ships.toArray(new AbstractShip[0]);
         this.opponentBoard = opponentBoard;
-        destroyedCount = 0;
-        lose = false;
     }
 
     /* **
@@ -73,14 +70,12 @@ public class Player {
                 done = false;
             }
             opponentBoard.print();
+            board.print();
         } while (!done);
 
         return hit;
     }
 
-    /**
-     * Getters and setters
-     */
     public AbstractShip[] getShips() {
         return ships;
     }
@@ -91,21 +86,5 @@ public class Player {
 
     public Board getBoard() {
         return board;
-    }
-
-    public int getDestroyedCount() {
-        return destroyedCount;
-    }
-
-    public void setDestroyedCount(int destroyedCount) {
-        this.destroyedCount = destroyedCount;
-    }
-
-    public boolean isLose() {
-        return lose;
-    }
-
-    public void setLose(boolean lose) {
-        this.lose = lose;
     }
 }

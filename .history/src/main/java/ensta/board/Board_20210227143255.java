@@ -168,7 +168,7 @@ public class Board implements IBoard {
      * @param len
      */
     public void printBoardIndice(int len){
-        System.out.println("Board of: " + name);
+        System.out.println("Nom: " + name);
         System.out.print(" Navires:"  + String.format("%" + (3 * ships[0].length - 7) + "s", ""));
         System.out.print(" Frappes:"  + String.format("%" + (3 * ships[0].length - 7) + "s", ""));
         System.out.println();

@@ -73,6 +73,7 @@ public class Player {
                 done = false;
             }
             opponentBoard.print();
+            //board.print();
         } while (!done);
 
         return hit;

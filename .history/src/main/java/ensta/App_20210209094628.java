@@ -1,11 +1,5 @@
 package ensta;
 
-import ensta.game.*;
-import ensta.player.*;
-import ensta.utils.*;
-import ensta.board.*;
-import ensta.ship.*;
-
 /**
  * Hello world!
  *

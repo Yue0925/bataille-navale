@@ -73,6 +73,7 @@ public class Player {
                 done = false;
             }
             opponentBoard.print();
+            board.print();
         } while (!done);
 
         return hit;
@@ -103,9 +104,5 @@ public class Player {
 
     public boolean isLose() {
         return lose;
-    }
-
-    public void setLose(boolean lose) {
-        this.lose = lose;
     }
 }

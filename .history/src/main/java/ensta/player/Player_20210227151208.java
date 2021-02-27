@@ -73,6 +73,7 @@ public class Player {
                 done = false;
             }
             opponentBoard.print();
+            board.print();
         } while (!done);
 
         return hit;
@@ -97,15 +98,7 @@ public class Player {
         return destroyedCount;
     }
 
-    public void setDestroyedCount(int destroyedCount) {
-        this.destroyedCount = destroyedCount;
-    }
-
     public boolean isLose() {
         return lose;
-    }
-
-    public void setLose(boolean lose) {
-        this.lose = lose;
     }
 }
