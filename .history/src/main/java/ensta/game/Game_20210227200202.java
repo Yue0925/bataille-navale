@@ -98,22 +98,24 @@ public class Game {
         boolean done = false;
         do {
             b2.print();
-            System.out.print("Turn of: " + b1.getName() + " ");
             hit = player1.sendHit(coords); // send hit and set hit
             boolean strike = hit != Hit.MISS; // true if different from MISS
 
             done = updateScore();
+            //b1.print();
             System.out.println(makeHitMessage(false /* outgoing hit */, coords, hit));
 
             save();
 
             if (!done && !strike) { // strike miss
-                b1.print();
                 do {
-                    System.out.print("Turn of: " + b2.getName() + " ");
                     hit = player2.sendHit(coords);
                     strike = hit != Hit.MISS;
-
+                    /*
+                    if (strike) {
+                        b1.print();
+                    }
+                    */
                     System.out.println(makeHitMessage(true /* incoming hit */, coords, hit));
                     done = updateScore();
 

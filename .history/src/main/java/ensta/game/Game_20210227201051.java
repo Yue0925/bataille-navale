@@ -103,6 +103,7 @@ public class Game {
             boolean strike = hit != Hit.MISS; // true if different from MISS
 
             done = updateScore();
+            //b1.print();
             System.out.println(makeHitMessage(false /* outgoing hit */, coords, hit));
 
             save();
@@ -113,7 +114,11 @@ public class Game {
                     System.out.print("Turn of: " + b2.getName() + " ");
                     hit = player2.sendHit(coords);
                     strike = hit != Hit.MISS;
-
+                    /*
+                    if (strike) {
+                        b1.print();
+                    }
+                    */
                     System.out.println(makeHitMessage(true /* incoming hit */, coords, hit));
                     done = updateScore();
 

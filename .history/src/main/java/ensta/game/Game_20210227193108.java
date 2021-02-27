@@ -29,9 +29,6 @@ public class Game {
      */
     public Game() {}
 
-    /**
-     * Choose one player or two players
-     */
     private void chooseMode(){
         boolean done = false;
         do {
@@ -49,35 +46,24 @@ public class Game {
         } while (!done);
 
     }
-    
     public Game init() {
         if (!loadSave()) {
             // init attributes
             sin = new Scanner(System.in);
             chooseMode();
+
             System.out.println("entre ton nom:");
             String name = sin.nextLine();
-            Board b1 = new Board(name);
 
-            if(modeTwoPlayers){
-                System.out.println("entre ton nom pour player2:");
-                name = sin.nextLine();
-            }else{
-                name = "AI";
-            }
-            Board b2 = new Board(name);
+            Board b1 = new Board(name);
+            Board b2 = new Board("AI");
 
             player1 = new Player(b1, b2, createDefaultShips());
-            if(modeTwoPlayers){
-                player2 = new Player(b2, b1, createDefaultShips());
-            }else{
-                player2 = new AIPlayer(b2, b1, createDefaultShips());
-            }
-            
+            player2 = new AIPlayer(b2, b1, createDefaultShips());
+
             b1.print();
             // place player ships
             player1.putShips();
-            if(modeTwoPlayers){ b2.print(); }
             player2.putShips();
         }
         return this;
@@ -98,22 +84,24 @@ public class Game {
         boolean done = false;
         do {
             b2.print();
-            System.out.print("Turn of: " + b1.getName() + " ");
             hit = player1.sendHit(coords); // send hit and set hit
             boolean strike = hit != Hit.MISS; // true if different from MISS
 
             done = updateScore();
+            //b1.print();
             System.out.println(makeHitMessage(false /* outgoing hit */, coords, hit));
 
             save();
 
             if (!done && !strike) { // strike miss
-                b1.print();
                 do {
-                    System.out.print("Turn of: " + b2.getName() + " ");
                     hit = player2.sendHit(coords);
                     strike = hit != Hit.MISS;
-
+                    /*
+                    if (strike) {
+                        b1.print();
+                    }
+                    */
                     System.out.println(makeHitMessage(true /* incoming hit */, coords, hit));
                     done = updateScore();
 
