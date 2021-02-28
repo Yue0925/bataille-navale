@@ -1,3 +1,3 @@
 # bataille-navale
 
-Project is in the master branch
+Project is in the master branche.
