@@ -1,2 +1,3 @@
 # bataille-navale
-IN205
+
+Project is in the master branch
